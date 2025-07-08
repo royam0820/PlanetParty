@@ -127,7 +127,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen plant-background bg-gradient-to-br from-green-50 to-blue-50">
+    <div className="min-h-screen plant-background bg-gradient-to-br from-green-100 to-green-200">
       {/* Header */}
       <header className="bg-white shadow-lg sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
