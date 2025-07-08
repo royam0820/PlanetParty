@@ -124,6 +124,8 @@ The platform includes nine different educational games:
 
 - July 08, 2025. Initial setup with 6 games
 - July 08, 2025. Added 3 additional games: Cigarette Battle, Watering Game, Facade Renovation
+- July 08, 2025. Changed background to plant-themed images with green gradient
+- July 08, 2025. Updated title to "Planète Party"
 
 ## User Preferences
 

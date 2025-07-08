@@ -136,7 +136,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-eco-green rounded-full flex items-center justify-center">
                 <span className="text-white text-xl font-bold">🌱</span>
               </div>
-              <h1 className="text-2xl font-bold text-gray-800">Ma Petite Planète</h1>
+              <h1 className="text-2xl font-bold text-gray-800">Planète Party</h1>
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 bg-green-100 px-4 py-2 rounded-full">
