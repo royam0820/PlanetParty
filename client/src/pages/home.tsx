@@ -63,6 +63,33 @@ const challenges = [
     color: 'bg-indigo-500',
     tags: ['🚗 Transport', '🌱 Écolo'],
     tagColors: ['bg-indigo-100 text-indigo-600', 'bg-green-100 text-green-600']
+  },
+  {
+    id: 'cigarette-battle',
+    title: 'Bataille contre les mégots',
+    description: 'Clique vite sur les mégots pour nettoyer le parc !',
+    emoji: '🚬',
+    color: 'bg-red-500',
+    tags: ['⚡ Réflexes', '🏃 Rapide'],
+    tagColors: ['bg-red-100 text-red-600', 'bg-yellow-100 text-yellow-600']
+  },
+  {
+    id: 'watering-game',
+    title: 'Le bon arrosage',
+    description: 'Arrose seulement les plantes qui en ont besoin !',
+    emoji: '💧',
+    color: 'bg-cyan-500',
+    tags: ['🌱 Plantes', '🎯 Précision'],
+    tagColors: ['bg-green-100 text-green-600', 'bg-blue-100 text-blue-600']
+  },
+  {
+    id: 'facade-renovation',
+    title: 'Refais la façade',
+    description: 'Verdir un immeuble avec des solutions écologiques !',
+    emoji: '🏢',
+    color: 'bg-emerald-500',
+    tags: ['🏠 Urbanisme', '🌿 Végétal'],
+    tagColors: ['bg-gray-100 text-gray-600', 'bg-green-100 text-green-600']
   }
 ];
 

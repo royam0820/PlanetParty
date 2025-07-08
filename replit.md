@@ -36,13 +36,16 @@ The application uses three main database tables:
 - **game_results**: Stores individual game session results with score, time spent, and game type
 
 ### Game Types
-The platform includes six different educational games:
+The platform includes nine different educational games:
 1. **Waste Sorting Game**: Drag-and-drop waste items into correct recycling bins
 2. **Eco Quiz**: Multiple choice questions about environmental topics
 3. **Catch Waste Game**: Arcade-style game to catch falling waste items
 4. **True/False Game**: Quick true/false questions about sustainability
 5. **Spot Behavior Game**: Identify good and bad environmental behaviors
 6. **Mobility Plan Game**: Choose optimal transportation methods based on CO2 emissions
+7. **Cigarette Battle Game**: Whack-a-mole style game to clean up cigarette butts in a park
+8. **Watering Game**: Water only the plants that need it on balconies and courtyards
+9. **Facade Renovation Game**: Choose eco-friendly solutions to green a building facade
 
 ### Game Logic System
 - **Scoring System**: Different point values for different game types
@@ -119,7 +122,8 @@ The platform includes six different educational games:
 
 ## Changelog
 
-- July 08, 2025. Initial setup
+- July 08, 2025. Initial setup with 6 games
+- July 08, 2025. Added 3 additional games: Cigarette Battle, Watering Game, Facade Renovation
 
 ## User Preferences
 

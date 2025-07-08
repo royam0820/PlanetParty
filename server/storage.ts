@@ -84,6 +84,8 @@ export class MemStorage implements IStorage {
     const gameResult: GameResult = {
       ...result,
       id: this.currentResultId++,
+      userId: result.userId || null,
+      timeSpent: result.timeSpent || null,
       completedAt: new Date(),
     };
     

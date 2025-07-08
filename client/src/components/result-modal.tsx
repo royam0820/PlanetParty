@@ -15,6 +15,9 @@ const gameTypeNames = {
   'true-false': 'Vrai ou Faux',
   'spot-behavior': 'Repère les bons gestes',
   'mobility-plan': 'Plan de mobilité',
+  'cigarette-battle': 'Bataille contre les mégots',
+  'watering-game': 'Le bon arrosage',
+  'facade-renovation': 'Refais la façade',
 };
 
 export default function ResultModal({ result, onClose }: ResultModalProps) {

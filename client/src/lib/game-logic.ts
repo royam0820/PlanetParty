@@ -7,6 +7,9 @@ export const GAME_POINTS = {
   CATCH_WASTE: 5,
   SPOT_BEHAVIOR: 25,
   MOBILITY_PLAN: 30,
+  CIGARETTE_BATTLE: 5,
+  WATERING_GAME: 20,
+  FACADE_RENOVATION: 15,
   TIME_BONUS: 5,
   PERFECT_SCORE: 50
 };
@@ -48,8 +51,15 @@ export function checkForBadges(progress: UserProgress, gameResult: GameResult): 
     newBadges.push('perfectionist');
   }
   
+  // Eco Expert - answer 50 questions correctly (quiz games)
+  if (['eco-quiz', 'true-false'].includes(gameResult.gameType) && 
+      progress.completedChallenges >= 25 && 
+      !progress.badges.includes('eco-expert')) {
+    newBadges.push('eco-expert');
+  }
+  
   // Eco Warrior - try all game types
-  const gameTypes = ['waste-sorting', 'eco-quiz', 'true-false', 'catch-waste', 'spot-behavior', 'mobility-plan'];
+  const gameTypes = ['waste-sorting', 'eco-quiz', 'true-false', 'catch-waste', 'spot-behavior', 'mobility-plan', 'cigarette-battle', 'watering-game', 'facade-renovation'];
   // This would need to be tracked differently in a real implementation
   
   return newBadges;
