@@ -44,7 +44,7 @@ The platform includes nine different educational games:
 5. **Spot Behavior Game**: Identify good and bad environmental behaviors
 6. **Mobility Plan Game**: Choose optimal transportation methods based on CO2 emissions
 7. **Cigarette Battle Game**: Whack-a-mole style game to clean up cigarette butts in a park
-8. **Watering Game**: Water only the plants that need it on balconies and courtyards
+8. **Light Hunt Game**: Click on wasteful lights in buildings to reduce light pollution and save energy
 9. **Facade Renovation Game**: Choose eco-friendly solutions to green a building facade
 
 ### Game Logic System
@@ -132,6 +132,7 @@ The platform includes nine different educational games:
 - July 08, 2025. Changed background to plant-themed images with green gradient
 - July 08, 2025. Updated title to "Planète Party"
 - July 08, 2025. Implemented dynamic difficulty levels for action games based on user progression
+- July 09, 2025. Replaced watering game with "Chasse aux lumières" (Light Hunt) game focused on light pollution and energy conservation
 
 ## User Preferences
 

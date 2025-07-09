@@ -6,7 +6,7 @@ import TrueFalseGame from "./true-false-game";
 import SpotBehaviorGame from "./spot-behavior-game";
 import MobilityPlanGame from "./mobility-plan-game";
 import CigaretteBattleGame from "./cigarette-battle-game";
-import WateringGame from "./watering-game";
+import LightHuntGame from "./light-hunt-game";
 import FacadeRenovationGame from "./facade-renovation-game";
 import { GameResult } from "@/types/game";
 
@@ -24,7 +24,7 @@ const gameComponents = {
   'spot-behavior': SpotBehaviorGame,
   'mobility-plan': MobilityPlanGame,
   'cigarette-battle': CigaretteBattleGame,
-  'watering-game': WateringGame,
+  'light-hunt': LightHuntGame,
   'facade-renovation': FacadeRenovationGame,
 };
 
@@ -36,7 +36,7 @@ const gameTitles = {
   'spot-behavior': 'Repère les bons gestes',
   'mobility-plan': 'Plan de mobilité',
   'cigarette-battle': 'Bataille contre les mégots',
-  'watering-game': 'Le bon arrosage',
+  'light-hunt': 'Chasse aux lumières',
   'facade-renovation': 'Refais la façade',
 };
 

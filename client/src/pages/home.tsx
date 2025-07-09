@@ -74,13 +74,13 @@ const challenges = [
     tagColors: ['bg-red-100 text-red-600', 'bg-yellow-100 text-yellow-600']
   },
   {
-    id: 'watering-game',
-    title: 'Le bon arrosage',
-    description: 'Arrose seulement les plantes qui en ont besoin !',
-    emoji: '💧',
-    color: 'bg-cyan-500',
-    tags: ['🌱 Plantes', '🎯 Précision'],
-    tagColors: ['bg-green-100 text-green-600', 'bg-blue-100 text-blue-600']
+    id: 'light-hunt',
+    title: 'Chasse aux lumières',
+    description: 'Éteins les lumières inutiles et économise l\'énergie !',
+    emoji: '💡',
+    color: 'bg-yellow-500',
+    tags: ['🌙 Nuit', '⚡ Énergie'],
+    tagColors: ['bg-yellow-100 text-yellow-600', 'bg-blue-100 text-blue-600']
   },
   {
     id: 'facade-renovation',
