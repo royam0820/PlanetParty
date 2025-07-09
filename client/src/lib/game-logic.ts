@@ -14,6 +14,34 @@ export const GAME_POINTS = {
   PERFECT_SCORE: 50
 };
 
+export const GAME_DIFFICULTY = {
+  CATCH_WASTE: {
+    EASY: { spawnRate: 1500, baseSpeed: 2, speedVariation: 2 },
+    MEDIUM: { spawnRate: 1200, baseSpeed: 3, speedVariation: 3 },
+    HARD: { spawnRate: 1000, baseSpeed: 4, speedVariation: 4 },
+    EXPERT: { spawnRate: 800, baseSpeed: 5, speedVariation: 5 }
+  },
+  CIGARETTE_BATTLE: {
+    EASY: { spawnRate: 2000, duration: 3000 },
+    MEDIUM: { spawnRate: 1600, duration: 2500 },
+    HARD: { spawnRate: 1200, duration: 2000 },
+    EXPERT: { spawnRate: 1000, duration: 1500 }
+  },
+  WATERING_GAME: {
+    EASY: { plantCount: 6, timeLimit: 45 },
+    MEDIUM: { plantCount: 8, timeLimit: 40 },
+    HARD: { plantCount: 10, timeLimit: 35 },
+    EXPERT: { plantCount: 12, timeLimit: 30 }
+  }
+};
+
+export function getDifficultyLevel(userLevel: number): 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT' {
+  if (userLevel <= 2) return 'EASY';
+  if (userLevel <= 4) return 'MEDIUM';
+  if (userLevel <= 7) return 'HARD';
+  return 'EXPERT';
+}
+
 export const LEVEL_THRESHOLDS = [0, 100, 300, 600, 1000, 1500, 2200, 3000, 4000, 5500];
 
 export function calculateLevel(totalScore: number): number {

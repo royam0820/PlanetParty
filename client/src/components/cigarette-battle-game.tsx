@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { GameResult } from "@/types/game";
-import { GAME_POINTS } from "@/lib/game-logic";
+import { GAME_POINTS, GAME_DIFFICULTY, getDifficultyLevel, getLocalProgress } from "@/lib/game-logic";
 
 interface Cigarette {
   id: string;
@@ -22,6 +22,11 @@ export default function CigaretteBattleGame({ onComplete }: CigaretteBattleGameP
   const [clicked, setClicked] = useState(0);
   const [missed, setMissed] = useState(0);
 
+  // Get user level and difficulty
+  const userProgress = getLocalProgress();
+  const difficultyLevel = getDifficultyLevel(userProgress.level);
+  const difficulty = GAME_DIFFICULTY.CIGARETTE_BATTLE[difficultyLevel];
+
   const spawnCigarette = useCallback(() => {
     if (!gameStarted) return;
     
@@ -29,7 +34,7 @@ export default function CigaretteBattleGame({ onComplete }: CigaretteBattleGameP
       id: Date.now().toString(),
       x: Math.random() * 80 + 10,
       y: Math.random() * 70 + 15,
-      timeLeft: 3000 + Math.random() * 2000, // 3-5 seconds
+      timeLeft: difficulty.duration,
     };
     
     setCigarettes(prev => [...prev, newCigarette]);
@@ -49,10 +54,10 @@ export default function CigaretteBattleGame({ onComplete }: CigaretteBattleGameP
 
   useEffect(() => {
     if (gameStarted) {
-      const spawnInterval = setInterval(spawnCigarette, 1000);
+      const spawnInterval = setInterval(spawnCigarette, difficulty.spawnRate);
       return () => clearInterval(spawnInterval);
     }
-  }, [gameStarted, spawnCigarette]);
+  }, [gameStarted, spawnCigarette, difficulty.spawnRate]);
 
   useEffect(() => {
     if (gameStarted) {
@@ -111,9 +116,17 @@ export default function CigaretteBattleGame({ onComplete }: CigaretteBattleGameP
       {!gameStarted ? (
         <div className="text-center">
           <h4 className="text-xl font-semibold mb-2">Bataille contre les mégots !</h4>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-2">
             Des mégots apparaissent dans le parc. Clique vite dessus pour les ramasser avant qu'ils ne polluent !
           </p>
+          <div className="mb-4 p-3 bg-green-50 rounded-lg">
+            <p className="text-sm font-medium text-green-800">
+              Niveau de difficulté: <span className="font-bold">{difficultyLevel}</span>
+            </p>
+            <p className="text-xs text-green-600 mt-1">
+              Durée: {difficulty.duration/1000}s | Fréquence: {2000/difficulty.spawnRate}x
+            </p>
+          </div>
           <Button onClick={startGame} className="bg-red-500 text-white hover:bg-red-600">
             Commencer la bataille !
           </Button>

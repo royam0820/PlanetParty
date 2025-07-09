@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { GameResult } from "@/types/game";
-import { GAME_POINTS } from "@/lib/game-logic";
+import { GAME_POINTS, GAME_DIFFICULTY, getDifficultyLevel } from "@/lib/game-logic";
+import { getLocalProgress } from "@/lib/game-logic";
 
 interface FallingWaste {
   id: string;
@@ -26,6 +27,11 @@ export default function CatchWasteGame({ onComplete }: CatchWasteGameProps) {
   const [missed, setMissed] = useState(0);
 
   const wasteEmojis = ['🥤', '🍌', '📄', '🥫', '🍷', '🥛'];
+  
+  // Get user level and difficulty
+  const userProgress = getLocalProgress();
+  const difficultyLevel = getDifficultyLevel(userProgress.level);
+  const difficulty = GAME_DIFFICULTY.CATCH_WASTE[difficultyLevel];
 
   const spawnWaste = useCallback(() => {
     if (!gameStarted) return;
@@ -35,11 +41,11 @@ export default function CatchWasteGame({ onComplete }: CatchWasteGameProps) {
       x: Math.random() * 80 + 10,
       y: 0,
       emoji: wasteEmojis[Math.floor(Math.random() * wasteEmojis.length)],
-      speed: Math.random() * 3 + 2
+      speed: Math.random() * difficulty.speedVariation + difficulty.baseSpeed
     };
     
     setFallingWastes(prev => [...prev, newWaste]);
-  }, [gameStarted]);
+  }, [gameStarted, difficulty]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -55,10 +61,10 @@ export default function CatchWasteGame({ onComplete }: CatchWasteGameProps) {
 
   useEffect(() => {
     if (gameStarted) {
-      const spawnInterval = setInterval(spawnWaste, 1500);
+      const spawnInterval = setInterval(spawnWaste, difficulty.spawnRate);
       return () => clearInterval(spawnInterval);
     }
-  }, [gameStarted, spawnWaste]);
+  }, [gameStarted, spawnWaste, difficulty.spawnRate]);
 
   useEffect(() => {
     if (gameStarted) {
@@ -137,9 +143,17 @@ export default function CatchWasteGame({ onComplete }: CatchWasteGameProps) {
       {!gameStarted ? (
         <div className="text-center">
           <h4 className="text-xl font-semibold mb-2">Attrape les déchets qui tombent !</h4>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-2">
             Déplace ton panier et clique sur les déchets pour les attraper. Attention aux vies !
           </p>
+          <div className="mb-4 p-3 bg-green-50 rounded-lg">
+            <p className="text-sm font-medium text-green-800">
+              Niveau de difficulté: <span className="font-bold">{difficultyLevel}</span>
+            </p>
+            <p className="text-xs text-green-600 mt-1">
+              Vitesse: {difficulty.baseSpeed}x | Fréquence: {1500/difficulty.spawnRate}x
+            </p>
+          </div>
           <Button onClick={startGame} className="bg-eco-warning text-white hover:bg-eco-warning/80">
             Commencer la chasse !
           </Button>

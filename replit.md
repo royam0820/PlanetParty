@@ -52,6 +52,11 @@ The platform includes nine different educational games:
 - **Level Progression**: Automatic level calculation based on total score
 - **Badge System**: Achievement system with various ecological badges
 - **Streak Tracking**: Tracks consecutive successful game completions
+- **Difficulty Scaling**: Dynamic difficulty adjustment based on user level
+  - **EASY (Levels 1-2)**: Slower speed, more time, fewer elements
+  - **MEDIUM (Levels 3-4)**: Standard difficulty settings
+  - **HARD (Levels 5-7)**: Faster speed, less time, more elements
+  - **EXPERT (Level 8+)**: Maximum challenge with rapid gameplay
 
 ### UI Components
 - **Modular Design**: Reusable game components with consistent interface
@@ -126,6 +131,7 @@ The platform includes nine different educational games:
 - July 08, 2025. Added 3 additional games: Cigarette Battle, Watering Game, Facade Renovation
 - July 08, 2025. Changed background to plant-themed images with green gradient
 - July 08, 2025. Updated title to "Planète Party"
+- July 08, 2025. Implemented dynamic difficulty levels for action games based on user progression
 
 ## User Preferences
 

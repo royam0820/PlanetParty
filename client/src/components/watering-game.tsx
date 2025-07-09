@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { GameResult } from "@/types/game";
-import { GAME_POINTS } from "@/lib/game-logic";
+import { GAME_POINTS, GAME_DIFFICULTY, getDifficultyLevel, getLocalProgress } from "@/lib/game-logic";
 
 interface Plant {
   id: string;
@@ -37,6 +37,11 @@ export default function WateringGame({ onComplete }: WateringGameProps) {
   const [feedback, setFeedback] = useState<{ [key: string]: 'correct' | 'incorrect' }>({});
   const [startTime, setStartTime] = useState(Date.now());
 
+  // Get user level and difficulty
+  const userProgress = getLocalProgress();
+  const difficultyLevel = getDifficultyLevel(userProgress.level);
+  const difficulty = GAME_DIFFICULTY.WATERING_GAME[difficultyLevel];
+
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (gameStarted && timeLeft > 0) {
@@ -50,16 +55,16 @@ export default function WateringGame({ onComplete }: WateringGameProps) {
   }, [gameStarted, timeLeft]);
 
   const startGame = () => {
-    // Randomize which plants need water
-    const shuffledPlants = plants.map(plant => ({
+    // Select plants based on difficulty level
+    const selectedPlants = plants.slice(0, difficulty.plantCount).map(plant => ({
       ...plant,
       needsWater: Math.random() > 0.4, // 60% chance of needing water
       watered: false
     }));
     
-    setGamePlants(shuffledPlants);
+    setGamePlants(selectedPlants);
     setGameStarted(true);
-    setTimeLeft(25);
+    setTimeLeft(difficulty.timeLimit);
     setScore(0);
     setFeedback({});
     setStartTime(Date.now());
@@ -100,10 +105,18 @@ export default function WateringGame({ onComplete }: WateringGameProps) {
       {!gameStarted ? (
         <div className="text-center">
           <h4 className="text-xl font-semibold mb-2">Le bon arrosage !</h4>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-2">
             Observe bien les plantes et arrose seulement celles qui en ont besoin. 
             Certaines sont déjà suffisamment arrosées !
           </p>
+          <div className="mb-4 p-3 bg-green-50 rounded-lg">
+            <p className="text-sm font-medium text-green-800">
+              Niveau de difficulté: <span className="font-bold">{difficultyLevel}</span>
+            </p>
+            <p className="text-xs text-green-600 mt-1">
+              Plantes: {difficulty.plantCount} | Temps: {difficulty.timeLimit}s
+            </p>
+          </div>
           <div className="bg-blue-50 p-4 rounded-lg mb-6">
             <p className="text-sm text-blue-800">
               💡 <strong>Indices :</strong> Les plantes qui ont l'air fanées ou sèches ont besoin d'eau.
