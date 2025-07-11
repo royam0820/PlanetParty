@@ -47,15 +47,6 @@ const challenges = [
     tagColors: ['bg-green-100 text-green-600', 'bg-blue-100 text-blue-600']
   },
   {
-    id: 'spot-behavior',
-    title: 'Repère les bons gestes',
-    description: 'Clique sur les comportements écoresponsables !',
-    emoji: '👀',
-    color: 'bg-pink-500',
-    tags: ['🔍 Observation', '👥 Social'],
-    tagColors: ['bg-pink-100 text-pink-600', 'bg-green-100 text-green-600']
-  },
-  {
     id: 'mobility-plan',
     title: 'Plan de mobilité',
     description: 'Choisis le transport le plus écologique !',
@@ -83,13 +74,49 @@ const challenges = [
     tagColors: ['bg-yellow-100 text-yellow-600', 'bg-blue-100 text-blue-600']
   },
   {
-    id: 'facade-renovation',
-    title: 'Refais la façade',
-    description: 'Verdir un immeuble avec des solutions écologiques !',
-    emoji: '🏢',
-    color: 'bg-emerald-500',
-    tags: ['🏠 Urbanisme', '🌿 Végétal'],
+    id: 'stop-invasives',
+    title: 'Stop Invasives !',
+    description: 'Élimine les espèces envahissantes sans toucher aux espèces protégées !',
+    emoji: '🦎',
+    color: 'bg-lime-600',
+    tags: ['⚡ Réaction', '🔎 Filtrage'],
+    tagColors: ['bg-yellow-100 text-yellow-600', 'bg-green-100 text-green-600']
+  },
+  {
+    id: 'bee-maze',
+    title: 'Sauve les abeilles',
+    description: 'Guide une abeille à travers un champ pour éviter les pesticides et atteindre les fleurs !',
+    emoji: '🐝',
+    color: 'bg-yellow-300',
+    tags: ['🧩 Labyrinthe', '🚫 Pesticides'],
+    tagColors: ['bg-yellow-100 text-yellow-600', 'bg-red-100 text-red-600']
+  },
+  {
+    id: 'forest-defense',
+    title: 'La Forêt en Détresse',
+    description: 'Plante des arbres pour ralentir les machines de déforestation et sauve la forêt !',
+    emoji: '🌳',
+    color: 'bg-green-700',
+    tags: ['🛡️ Tower Defense', '🌲 Forêt'],
     tagColors: ['bg-gray-100 text-gray-600', 'bg-green-100 text-green-600']
+  },
+  {
+    id: 'beach-cleanup',
+    title: 'Nettoie la plage',
+    description: 'Ramasse les déchets sur la plage en évitant les crabes, dans un temps limité !',
+    emoji: '��️',
+    color: 'bg-blue-400',
+    tags: ['🦀 Évite les crabes', '⏱️ Temps limité'],
+    tagColors: ['bg-blue-100 text-blue-600', 'bg-orange-100 text-orange-600']
+  },
+  {
+    id: 'animal-rescue',
+    title: 'Sauvetage des animaux menacés',
+    description: 'Associe chaque animal à son habitat naturel avant qu’il ne disparaisse !',
+    emoji: '🐾',
+    color: 'bg-orange-600',
+    tags: ['🧩 Puzzle', '🌍 Association'],
+    tagColors: ['bg-orange-100 text-orange-600', 'bg-green-100 text-green-600']
   }
 ];
 
